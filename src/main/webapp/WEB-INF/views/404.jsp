@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="span9 offset1">
 				<div class="error page img">
-					<img src="<c:url value="/img/404.jpg" />" alt="" />
+					<img src="<c:url value="/img/404.jpg" />" alt="xiaoxin" />
 				</div>
 				<div class="error page code">
 					404

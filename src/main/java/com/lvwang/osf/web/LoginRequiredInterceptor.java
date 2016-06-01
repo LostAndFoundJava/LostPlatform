@@ -53,6 +53,7 @@ public class LoginRequiredInterceptor implements HandlerInterceptor{
 		    writer.write(json);
 		    writer.close();
 		} else {
+			System.out.println(req.getLocalName()+"1111111");
 			session.setAttribute("notifications", notificationService.getNotificationsCount(user.getId()));
 			return true;
 		}

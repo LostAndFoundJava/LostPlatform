@@ -39,6 +39,7 @@ public class NotifyInterceptor implements HandlerInterceptor{
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		if(user != null){
+			System.out.println("2222222"+req.getLocalName());
 			session.setAttribute("notifications", notificationService.getNotificationsCount(user.getId()));
 		}
 		session.setAttribute("img_base_url", Property.IMG_BASE_URL);

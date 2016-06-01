@@ -30,11 +30,11 @@
           <div class="span8">  
 	          	<div class="header_box">
 	          		<div class="ui avatar image">
-	                	<img src="${img_base_url }${user.user_avatar}">
+	                	<img src="<c:url value="${img_base_url }${user.user_avatar }"/> ">
 	                </div>                
 					<div id="action_bar">
 						<div class="ui labeled icon menu actions" >
-						  <a class="item sport_link" href="#">
+						  <a class="item sport_link" hreuif="#">
 						    <i class="blue big font icon"></i>
 						    发状态
 						  </a>
