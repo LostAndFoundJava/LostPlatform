@@ -34,7 +34,7 @@
 	                </div>                
 					<div id="action_bar">
 						<div class="ui labeled icon menu actions" >
-						  <a class="item sport_link" hreuif="#">
+						  <a class="item sport_link" href="#">
 						    <i class="blue big font icon"></i>
 						    发状态
 						  </a>
@@ -141,8 +141,7 @@
                       </div>
                     </div> 
                     <!-- empty event , wait for full and show -->
-
-                    <%@ include file="nextpage.jsp" %>                
+                    <%@ include file="nextpage.jsp" %>   
                   </div>  <!--end feed -->
 				  <div class="footer" style="left: 40%">
 					 <i class="disabled big loading spinner icon"></i>

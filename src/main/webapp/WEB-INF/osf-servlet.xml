@@ -20,9 +20,9 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/js/**"/>
+			<mvc:exclude-mapping path="/userimg/**"/>
 			<mvc:exclude-mapping path="/css/**"/>
 			<mvc:exclude-mapping path="/img/**"/>
-			<mvc:exclude-mapping path="/userimg/*"/>
 			<mvc:exclude-mapping path="/font/**"/>
 			<mvc:exclude-mapping path="/account/login"/>
 			<mvc:exclude-mapping path="/account/logout"/>
@@ -55,6 +55,7 @@
 	<mvc:resources location="/js/" mapping="/js/**"/>
 	<mvc:resources location="/css/" mapping="/css/**"/> 
 	<mvc:resources location="/img/" mapping="/img/**"/>
+	<mvc:resources location="/userimg/" mapping="/userimg/**"/>
 	<mvc:resources location="/fonts/" mapping="/fonts/**"/>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"

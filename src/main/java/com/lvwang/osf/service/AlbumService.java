@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,6 +71,7 @@ public class AlbumService {
 		album.setAlbum_desc(desc);
 		album.setStatus(status);
 		album.setCover(cover);
+		album.setLast_add_ts(new Date());
 		int id = albumDao.saveAlbum(album);
 		if(id != 0){
 			album.setId(id);

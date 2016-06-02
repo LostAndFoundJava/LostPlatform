@@ -79,7 +79,7 @@
 								'</div>'+
 							'</div>'+
 							'<div class="ui divider"></div>');
-			$(comment).find('img').attr('src', img_base_url + data.avatar);
+			$(comment).find('img').attr('src', basePath+img_base_url + data.avatar);
 			$(comment).find('a.replyer').attr('href', basePath + '/user/' + data.author_id).text(data.author_name);
 			if(comment_parent != '0'){
 				var reply_to_html = $('<a class="author replyto" href=""></a>');

@@ -2,6 +2,7 @@ package com.lvwang.osf.dao.impl;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,7 +57,7 @@ public class AlbumDAOImpl implements AlbumDAO{
 	
 	public int saveAlbum(final Album album) {
 		final String sql = "insert into " + TABLE_ALBUM + 
-							"(user_id, album_title, album_desc, status, cover) values(?,?,?,?,?)";
+							"(user_id, album_title, album_desc, status, cover ,last_add_ts) values(?,?,?,?,?,?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			
@@ -68,6 +69,7 @@ public class AlbumDAOImpl implements AlbumDAO{
 				ps.setString(3, album.getAlbum_desc());
 				ps.setInt(4, album.getStatus());
 				ps.setString(5, album.getCover());
+				ps.setDate(6, new Date(album.getLast_add_ts().getTime()));
 				return ps;
 			}
 		}, keyHolder);

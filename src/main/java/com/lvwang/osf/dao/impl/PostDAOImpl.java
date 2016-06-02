@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +64,7 @@ public class PostDAOImpl implements PostDAO{
 		String sql = "select * from " + TABLE + " where post_author=? and post_title is not null";
 		List<Post> posts = jdbcTemplate.query(sql, new Object[]{id}, new RowMapper<Post>(){
 
+			@SuppressWarnings("deprecation")
 			public Post mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
 				Post post = new Post();
@@ -71,7 +74,8 @@ public class PostDAOImpl implements PostDAO{
 				post.setLike_count(rs.getInt("like_count"));
 				post.setPost_author(rs.getInt("post_author"));
 				post.setPost_excerpt(rs.getString("post_excerpt"));
-				post.setPost_lastts(rs.getTimestamp("post_lastts"));
+				//post.setPost_lastts(new Date(rs.getTimestamp("post_lastts").getTime()));
+				System.out.println(rs.getTimestamp("post_lastts").getTime());
 				post.setPost_status(rs.getInt("post_status"));
 				post.setPost_title(rs.getString("post_title"));
 				post.setPost_ts(rs.getTimestamp("post_ts"));
@@ -90,8 +94,8 @@ public class PostDAOImpl implements PostDAO{
 		final String sql = "insert into " + TABLE + 
 					 "(post_author, post_title, post_content,"
 					 + "post_excerpt, post_status,"
-					 + "post_pwd, comment_status, post_tags, post_cover)"
-					 + " values(?,?,?,?,?,?,?,?,?)";
+					 + "post_pwd, comment_status, post_tags, post_cover,post_lastts)"
+					 + " values(?,?,?,?,?,?,?,?,?,?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			
@@ -107,6 +111,7 @@ public class PostDAOImpl implements PostDAO{
 				ps.setInt(7, post.getComment_status());
 				ps.setString(8, TagService.toString(post.getPost_tags()));
 				ps.setString(9, post.getPost_cover());
+				ps.setTimestamp(10, new Timestamp(new Date().getTime()));
 				return ps;
 			}
 		}, keyHolder);
