@@ -32,7 +32,7 @@
 							  </div>
 							  <div class="field">
 							    <label>密码<span id="paswordTip" class="tip"></span></label>
-							    <input type="password" name="password" id="password">
+							    <input type="password" name="password" id="password" value="">
 							  </div>
 							  <div class="field">
 							  	<div class="ui green button" id="loginbtn">登录</div>

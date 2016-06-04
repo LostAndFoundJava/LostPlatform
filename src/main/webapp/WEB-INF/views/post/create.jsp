@@ -39,7 +39,6 @@
 					  		<input type="text" class="tag-input" id="tag-input" placeholder="空格添加标签">
 						    <div class="tagfield">   
 						    </div>
-					  		
 					  	</div>
 					</div>
 				  			  
@@ -106,7 +105,7 @@
     			data: {
     			       content: content,
     			       title: title,
-    			       tags: tags.join(' '),
+    			       tags: tags.join('x'),
     			       post_status: post_status,
     			       comment_status: comment_status}
     		})

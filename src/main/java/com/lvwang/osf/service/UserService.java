@@ -160,27 +160,24 @@ public class UserService {
 	@SuppressWarnings("deprecation")
 	public String register(String username, String email, String password, String conformPwd, Map<String, String> map) {
 		//1 empty check
-		if(email == null || email.length() <= 0)
+		if(email == null || email.length() <= 0){
 			return Property.ERROR_EMAIL_EMPTY;
-		else{
+		}else{
 			//4 ValidateEmail
 			if(!ValidateEmail(email))
 				return Property.ERROR_EMAIL_FORMAT;
-			
 			//5 email exist?
 			User user = findByEmail(email);
 			if(user != null) {
-							
 				//6 user status check
-				if(STATUS_USER_NORMAL == user.getUser_status())
+				if(STATUS_USER_NORMAL == user.getUser_status()){
 					return Property.ERROR_ACCOUNT_EXIST;
-				else if(STATUS_USER_INACTIVE == user.getUser_status()){
+				}else if(STATUS_USER_INACTIVE == user.getUser_status()){
 					map.put("activationKey", URLEncoder.encode(user.getUser_activationKey()));
 					return Property.ERROR_ACCOUNT_INACTIVE;
-				}
-				else if(STATUS_USER_LOCK == user.getUser_status())
+				}else if(STATUS_USER_LOCK == user.getUser_status()){
 					return Property.ERROR_ACCOUNT_LOCK;
-				else if(STATUS_USER_CANCELLED == user.getUser_status()) 
+				}else if(STATUS_USER_CANCELLED == user.getUser_status()) 
 					return Property.ERROR_ACCOUNT_CANCELLED;
 			}			
 		}
@@ -203,6 +200,7 @@ public class UserService {
 			if(vpf_rs != Property.SUCCESS_PWD_FORMAT)
 				return vpf_rs;
 		}
+		
 		if(conformPwd == null || conformPwd.length() <= 0)
 			return Property.ERROR_CFMPWD_EMPTY;
 				

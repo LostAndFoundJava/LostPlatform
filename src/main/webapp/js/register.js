@@ -22,7 +22,7 @@ $(document).ready(function(){
 		})
 		.success(function(data) {
 			$(that).removeClass('loading');
-			if(data.status == '104000') {
+			if(data.status == SUCCESS_ACCOUNT_REG) {
 				self.location = basePath + '/account/activation/mail/send?email='+email;
 			} else { //error
 				var status = data.status;
@@ -65,7 +65,7 @@ $(document).ready(function(){
 							$('#cfmPwd').parent('div.field:first').addClass('error');
 						}
 						break;
-					case '4':
+					case '4': //注册成功，等待激活
 						if(status == '004003') {
 							var activationUrl = basePath + '/account/activation/mail/send?email='+email;
 							$('#emailTip').html('<a href="'+activationUrl+'">已注册,请激活</a>');
@@ -86,8 +86,4 @@ $(document).ready(function(){
 		});
 		
 	});
-
-
-
-
 })

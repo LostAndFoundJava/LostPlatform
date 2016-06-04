@@ -95,22 +95,16 @@ public class PostController {
 						@RequestParam("comment_status") int comment_status,
 						@RequestParam("tags") String param_tags,
 						HttpSession session) {
-				
+		System.out.println(param_tags);	
 		User user = (User)session.getAttribute("user");
 		String post_cover = (String) session.getAttribute("post_cover");
+		System.out.println(post_cover);
 		session.removeAttribute("post_cover");
 		//1 save post
 		Map<String, Object> map = postService.newPost(user.getId(), 
-													  title, 
-													  content, 
-													  post_status, 
-													  comment_status,
-													  param_tags,
-													  post_cover);
+				title, content, post_status,comment_status, param_tags, post_cover);
 		String status = (String)map.get("status");
 		Post post = (Post)map.get("post");
-		
-		
 		
 		//2 add event 
 		if(Property.SUCCESS_POST_CREATE.equals(status)) {

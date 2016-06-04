@@ -130,10 +130,7 @@ public class PostService {
 			//4 save post tag relation
 			for(Tag tag: (List<Tag>)tagsmap.get("tags")) {
 				Map<String, Object> relmap = relationService.newRelation(
-											 RelationService.RELATION_TYPE_POST, 
-											 post.getId(), 
-											 tag.getId()
-											 );
+					RelationService.RELATION_TYPE_POST, post.getId(), tag.getId());
 			}			
 			map.put("tags", tagsmap.get("tags"));
 		} else {

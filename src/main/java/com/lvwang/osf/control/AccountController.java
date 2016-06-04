@@ -179,13 +179,13 @@ public class AccountController {
 			@RequestParam("email") String email,
 			@RequestParam("password") String password,
 			@RequestParam("cfmPwd") String cfmPwd) {
+		//TODO  改为统一的日志管理
 		System.out.println("resister....");
+		//存储id，激活key和注册成功与否status
 		Map<String, String> map = new HashMap<String, String>();
-		String status = userService.register(username, email, password, cfmPwd,
-				map);
+		String status = userService.register(username, email, password, cfmPwd, map);
 		if (Property.SUCCESS_ACCOUNT_REG.equals(status)) {
-			mailService.sendAccountActivationEmail(email,
-					map.get("activationKey"));
+			mailService.sendAccountActivationEmail(email, map.get("activationKey"));
 		}
 		map.put("status", status);
 		return map;
@@ -232,8 +232,7 @@ public class AccountController {
 
 		String status = null;
 		try {
-			status = userService.activateUser(email,
-					URLDecoder.decode(key, "utf-8"));
+			status = userService.activateUser(email, URLDecoder.decode(key, "utf-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
