@@ -15,7 +15,7 @@ $(document).ready(function(){
 	                				if(data.status == SUCCESS_PHOTO_CREATE) {
 		                				var $imgCard = $('<div class="card" id="card'+data.id+'">'+
 		    									'<a class="image" href="#">'+
-		      										'<img src="'+basePath+img_base_url+data.key+album_thumbnail+'">'+
+		      										'<img src="'+img_base_url+data.key+album_thumbnail+'">'+
 		    									'</a>'+
 		    									'<div class="content">'+
 		    										'<textarea rows="" cols="" placeholder="添加描述..."></textarea>'+

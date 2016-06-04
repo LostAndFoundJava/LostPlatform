@@ -113,12 +113,12 @@
 				
 				<div class="crop_avatar_area">
 				  <div id="target_img_cnt">	
-				  	<img src="<c:url value="/img/avatar.jpg"></c:url>" id="target" alt="[Jcrop Example]" />
+				  	<img src="<c:url value="/userimg/1.jpg"></c:url>" id="target" alt="[Jcrop Example]" />
 				  </div>
 				  
 				  <div id="preview-pane">
 			    	<div class="preview-container">
-			      		<img src="<c:url value="/img/avatar.jpg"></c:url>" class="jcrop-preview" alt="Preview" />
+			      		<img src="<c:url value="/userimg/1.jpg"></c:url>" class="jcrop-preview" alt="Preview" />
 			    	</div>
 					<div class="ui tiny blue button" id="avatar_save">
 				  		保存

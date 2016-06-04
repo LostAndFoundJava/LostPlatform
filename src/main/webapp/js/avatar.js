@@ -17,6 +17,7 @@ $(document).ready(function(){
 		y=0;
 		width=0;
 		height=0;
+		//alert("xx");
 
     $('#target').Jcrop({
       onChange: updatePreview,
@@ -64,6 +65,7 @@ $(document).ready(function(){
     
     
     $('#avatar_file').live('change', function(event) {
+    	//alert();
  	   $.ajaxFileUpload({
  	                		url: basePath+'/album/upload/avatar', 
  	                		secureuri:false,
@@ -73,6 +75,7 @@ $(document).ready(function(){
  	                				data = jQuery.parseJSON(data);
  	                				
  	                				jcrop_api.setImage(data.link);
+ 	                				alert(data.link);
  	                				$('#target_img_cnt img').attr('src', data.link);
  	                				$('#preview-pane img').attr('src', data.link);
  	                				$('.crop_avatar_area').show();

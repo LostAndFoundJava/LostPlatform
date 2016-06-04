@@ -82,14 +82,14 @@ $(document).ready(function(){
 		//post
 		if(event.object_type == '0'){
 			var post_url = basePath + '/post/' + event.object_id;
-			var post_cover_url = basePath+img_base_url + event.content + '?imageView2/1/w/300/h/240';
+			var post_cover_url = img_base_url + event.content + '?imageView2/1/w/300/h/240';
 			var post = $('<a href="'+post_url+'"><img src="'+post_cover_url+'" /></a>');
 			box.append(post);
 		} 
 		//album
 		else if(event.object_type == '2') {
 			var album_url = basePath + '/album/'+event.object_id + '/photos';
-			var album_cover_url = basePath+img_base_url + event.title + '?imageView2/1/w/300/h/240';
+			var album_cover_url = img_base_url + event.title + '?imageView2/1/w/300/h/240';
 			var album = $('<a href="'+album_url+'"><img src="'+album_cover_url+'" /></a>');
 			box.append(album);
 		}
@@ -97,7 +97,7 @@ $(document).ready(function(){
 		//append meta
 		var meta = $('<div class="meta"></div>');
 		var content = $('<a href="'+basePath+'/user/'+event.user_id+'">'+
-							'<img class="ui avatar image" src="'+basePath+img_base_url+event.user_avatar+'?imageView2/1/w/48/h/48">'+
+							'<img class="ui avatar image" src="'+img_base_url+event.user_avatar+'?imageView2/1/w/48/h/48">'+
 							'<span>'+event.user_name+'</span>'+
 						'</a>');
 		meta.append(content);

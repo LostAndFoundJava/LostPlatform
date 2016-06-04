@@ -43,9 +43,9 @@ public class AlbumDAOImpl implements AlbumDAO{
 //	private static final String bucket = "osfimgs";
 //	private OSSClient client = new OSSClient(endpoint, accessKeyID, accessKeySecret);
 	
-	private static final String AK = "1mAeoCNoX25n_QiPGK-aS8895kQ4RedWWYb6LCpK";
-	private static final String SK = "kJBUkzruYDjmnmx8UDsjMHD2OEw5SzTi36WP2BD4";
-	private static final String bucket = "osfimg";
+	String AK = "9nHdP_-RehGtHG1nkzgCk7nqZHobTiruxxN7J5Em";
+	String SK = "IiXbcXqGHAv0axkcm2xYJmvrga14ww0-8poeVsEZ";
+	private static final String bucket = "teamwork";
 	private Auth auth = Auth.create(AK, SK);
 	private BucketManager bucketManager = new BucketManager(auth);
 	
