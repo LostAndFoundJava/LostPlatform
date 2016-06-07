@@ -63,6 +63,7 @@ public class NotificationDAOImpl implements NotificationDAO{
 			public PreparedStatement createPreparedStatement(Connection con)
 					throws SQLException {
 				PreparedStatement ps = con.prepareStatement(sql, new String[]{"id"});
+				System.out.println(notification.getNotify_id());
 				ps.setInt(1, notification.getNotify_type());
 				ps.setInt(2, notification.getNotify_id());
 				ps.setInt(3, notification.getObject_type());
@@ -173,17 +174,17 @@ public class NotificationDAOImpl implements NotificationDAO{
 	
 	public Map<String, Integer> getNotificationsCount(int user_id) {
 		final Map<String, Integer> notifications = new HashMap<String, Integer>();
-		
+		//if redis do not have,get from the mysql and put all into redis.
 		if(!redisTemplate.hasKey(NOTIFY_KEY+user_id)){
-			
 			hashOps.putAll(NOTIFY_KEY+user_id, getNotifications(notifications, user_id));
-
 		} else{
 			for(String key: hashOps.keys(NOTIFY_KEY+user_id)){
+				System.out.println("get from redis getNotificationCount");
+				System.out.println("the notify type "+key);
+				System.out.println("the value "+ hashOps.get(NOTIFY_KEY+user_id, key));
 				notifications.put(key, hashOps.get(NOTIFY_KEY+user_id, key));
 			}
 		}
 		return notifications;
 	}
-
 }

@@ -21,7 +21,7 @@ public class MailService {
 	
 	static{
 		String classpath = MailService.class.getClassLoader().getResource("").getPath();
-		 
+		classpath="/F:/java/TomCat/apache-tomcat-7.0.42/webapps/com.lvwang.osf/WEB-INF/classes";
 		Properties prop = new Properties();  
 		try {
 			InputStream in = new FileInputStream(classpath+"/spring/property.properties");  

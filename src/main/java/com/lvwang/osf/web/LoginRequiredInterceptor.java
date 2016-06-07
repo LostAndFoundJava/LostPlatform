@@ -36,9 +36,8 @@ public class LoginRequiredInterceptor implements HandlerInterceptor{
 
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse rpo,
 			Object arg2) throws Exception {
-		
+		//need login url
 		System.out.println("login required inter:"+req.getRequestURL());
-		
 		HttpSession session = req.getSession();		
 		
 		User user = (User) session.getAttribute("user");
@@ -53,7 +52,6 @@ public class LoginRequiredInterceptor implements HandlerInterceptor{
 		    writer.write(json);
 		    writer.close();
 		} else {
-			System.out.println(req.getLocalName()+"1111111");
 			session.setAttribute("notifications", notificationService.getNotificationsCount(user.getId()));
 			return true;
 		}

@@ -63,7 +63,9 @@ public class HomePage {
 			return mav;
 		}
 		mav.addObject("counter", userService.getCounterOfFollowAndShortPost(user.getId()));
+		//feeds save the recently event(the num define in FEED_COUNT_PER_PAGE)
 		List<Event> feeds = feedService.getFeeds(user.getId());
+		System.out.println("feeds sizes:"+feeds.size());
 		mav.addObject("feeds", feeds);
 		
 		mav.addObject("dic", new Dic());
