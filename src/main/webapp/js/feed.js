@@ -131,11 +131,11 @@
   	$('.comment.outline.icon').live('click', function(){
   		
   		var comments_attach = $(this).parents('.content').find('.comments-attach');
+  		
   		if($(comments_attach).text() != null && $(comments_attach).text() != ''){
   			$(comments_attach).slideToggle();
   			return false;
   		}
-  		
   		var object_type = $(this).parents('.event').attr('type');
   		var object_id = $(this).parents('.event').attr('object_id');
   		var that = $(this);

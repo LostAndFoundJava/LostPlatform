@@ -11,7 +11,9 @@
 			    <div class="content">
 					<div class="ui fluid mini action input">
 					  <input type="text">
+					  <!--  对应的js在feed.js -->
 					  <div class="ui blue button reply">评论</div>
+					  <!--  对应的js在feed.js -->
 					  <div class="ui button cancle" style="margin-left: 10px">取消</div>
 					</div>
 			    </div>

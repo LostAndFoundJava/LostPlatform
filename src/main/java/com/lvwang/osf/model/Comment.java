@@ -4,15 +4,25 @@ import java.util.Date;
 
 public class Comment {
 	private int id;
+	//被评论对象的类型：日志，说说等。
 	private int comment_object_type;
+	//被评论对象的id
 	private int comment_object_id;
+	//评论人的id
 	private int comment_author;
+	//评论人的名字
 	private String comment_author_name;
+	//没使用
 	private String comment_author_avatar;
+	//评论的时间
 	private Date comment_ts;
+	//评论的内容
 	private String comment_content;
+	//有没有父（对评论进行评论）评论
 	private int comment_parent;
+	//父评论的id
 	private int comment_parent_author;
+	//父评论的人名
 	private String comment_parent_author_name;
 	public int getId() {
 		return id;

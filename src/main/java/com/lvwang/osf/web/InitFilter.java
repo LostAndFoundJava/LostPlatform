@@ -40,15 +40,16 @@ public class InitFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
+		
+		
 		HttpSession session = ((HttpServletRequest)request).getSession();
-		session.setAttribute("img_base_url", Property.IMG_BASE_URL);
-		session.setAttribute("post_cover_thumbnail", Property.POST_COVER_THUMBNAIL);
-		session.setAttribute("album_thumbnail", Property.ALBUM_THUMBNAIL);
-		
+		if(session.getAttribute("user")==null){
+			System.out.println("......我是过滤器.......");
+			session.setAttribute("img_base_url", Property.IMG_BASE_URL);
+			session.setAttribute("post_cover_thumbnail", Property.POST_COVER_THUMBNAIL);
+			session.setAttribute("album_thumbnail", Property.ALBUM_THUMBNAIL);
+		}
 		chain.doFilter(request, response);
-
-		
 	}
 
 	/**

@@ -5,10 +5,16 @@ import java.sql.Timestamp;
 public class Notification {
 	private int id;
 	private int notify_type;	//通知类型 Dic里有定义
-	private int notify_id;		//通告对象ID,如评论的ID
+	private int notify_id;		//通告对象ID,如评论的ID  //需要被通知的对象的id，例如评论， 其余为0；
 	private int object_type;	//被通告的对象类型 Dic里有定义
-	private int object_id;		//被通告对象的ID 
-	private int notified_user;	//被通告的用户
+/*	public static final int OBJECT_TYPE_POST = 0;
+	public static final int OBJECT_TYPE_PHOTO = 1;
+	public static final int OBJECT_TYPE_ALBUM = 2;
+	public static final int OBJECT_TYPE_FOLLOWING = 3;
+	public static final int OBJECT_TYPE_SHORTPOST = 4;
+	public static final int OBJECT_TYPE_USER = 5;*/
+	private int object_id;		//被通告对象的ID  
+	private int notified_user;	//被通告的用户ID
 	private int notifier;		//通告者
 	private Timestamp ts;		//通知时间戳
 	private int status;			//状态 0未读 1已读
