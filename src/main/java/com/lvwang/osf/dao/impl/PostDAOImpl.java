@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,13 +43,18 @@ public class PostDAOImpl implements PostDAO{
 					post = new Post();
 					post.setId(rs.getInt("id"));
 					post.setPost_author(rs.getInt("post_author"));
-					post.setPost_ts(rs.getTimestamp("post_ts"));
+					
+					//post.setPost_ts(rs.getTimestamp("post_ts"));
+					post.setPost_ts(
+					new Date(rs.getTimestamp("post_ts").getTime()));
 					post.setPost_title(rs.getString("post_title"));
 					post.setPost_content(rs.getString("post_content"));
 					post.setPost_excerpt(rs.getString("post_excerpt"));
 					post.setPost_lastts(rs.getTimestamp("post_lastts"));
 					post.setPost_tags(TagService.toList(rs.getString("post_tags")));
 					post.setComment_count(rs.getInt("comment_count"));
+					post.setFomatted_st( new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+					.format(post.getPost_ts()));
 				}
 				return post;
 			}						
@@ -75,10 +81,13 @@ public class PostDAOImpl implements PostDAO{
 				post.setPost_author(rs.getInt("post_author"));
 				post.setPost_excerpt(rs.getString("post_excerpt"));
 				//post.setPost_lastts(new Date(rs.getTimestamp("post_lastts").getTime()));
-				System.out.println(rs.getTimestamp("post_lastts").getTime());
+				//System.out.println(rs.getTimestamp("post_lastts").getTime());
 				post.setPost_status(rs.getInt("post_status"));
 				post.setPost_title(rs.getString("post_title"));
-				post.setPost_ts(rs.getTimestamp("post_ts"));
+				post.setPost_ts(new Date(rs.getTimestamp("post_ts").getTime()));
+				//post.setPost_ts(rs.getTimestamp("post_ts"));
+				System.out.println(new Date(rs.getTimestamp("post_ts").getTime()));
+				
 				post.setShare_count(rs.getInt("share_count"));
 				post.setPost_cover(rs.getString("post_cover"));
 				post.setPost_tags(TagService.toList(rs.getString("post_tags")));
