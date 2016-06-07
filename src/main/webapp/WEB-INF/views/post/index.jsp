@@ -47,7 +47,7 @@
 								${post.post_title }
 							</div>
 							<div class="date">
-								<i class="wait icon"></i><span>2015-05-01</span>
+								<i class="wait icon"></i><span>${post.fomatted_st} </span>
 							</div>
 							<div class="meta">
 								<div class="author">

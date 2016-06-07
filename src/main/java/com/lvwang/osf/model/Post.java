@@ -22,6 +22,7 @@ public class Post {
 	private List<Tag> post_tags;
 	private int post_album;
 	private String post_cover;
+	private String fomatted_st;
 	public int getId() {
 		return id;
 	}
@@ -123,6 +124,12 @@ public class Post {
 	}
 	public void setPost_cover(String post_cover) {
 		this.post_cover = post_cover;
+	}
+	public String getFomatted_st() {
+		return fomatted_st;
+	}
+	public void setFomatted_st(String fomatted_st) {
+		this.fomatted_st = fomatted_st;
 	}
 
 }
