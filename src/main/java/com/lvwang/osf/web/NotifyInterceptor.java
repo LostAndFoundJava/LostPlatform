@@ -37,7 +37,6 @@ public class NotifyInterceptor implements HandlerInterceptor{
 			Object arg2) throws Exception {
 		// TODO Auto-generated method stub
 		HttpSession session = req.getSession();
-		System.out.println("我是消息拦截器！！");
 		User user = (User) session.getAttribute("user");
 		if(user != null){
 			session.setAttribute("notifications", notificationService.getNotificationsCount(user.getId()));
