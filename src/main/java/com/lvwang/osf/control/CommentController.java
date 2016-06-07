@@ -126,8 +126,8 @@ public class CommentController {
 	public ModelAndView getAttachComments(@PathVariable("type") String type, @PathVariable("id") int id) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("comment/attach_comments");
+		//0 offest,5 the num of comments
 		mav.addObject("comments", commentService.getComments(type, id, 0, 5));
 		return mav;
 	}
-	
 }
