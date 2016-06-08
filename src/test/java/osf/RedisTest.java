@@ -62,10 +62,11 @@ public class RedisTest {
 	
 	@Test
 	public void RedisHashOps(){
-		Set<String> set=jedis.keys("*");
+/*		Set<String> set=jedis.keys("*");
 		for(String a : set){
 			System.out.println(hashOps.get(a, "system"));
-		}
+		}*/
+		System.out.println(hashOps.get("counter", "comment:shortpost:28"));
 	}
 	
 	@Test

@@ -1,6 +1,7 @@
 package com.lvwang.osf.util;
 
 public class Dic {
+	//object type
 	public static final int OBJECT_TYPE_POST = 0;
 	public static final int OBJECT_TYPE_PHOTO = 1;
 	public static final int OBJECT_TYPE_ALBUM = 2;
@@ -8,7 +9,7 @@ public class Dic {
 	public static final int OBJECT_TYPE_SHORTPOST = 4;
 	public static final int OBJECT_TYPE_USER = 5;
 	
-	
+	//notify type  (notify_id is the event_id)
 	public static final int NOTIFY_TYPE_SYSTEM = 0;
 	public static final int NOTIFY_TYPE_COMMENT = 1;
 	public static final int NOTIFY_TYPE_COMMENT_REPLY = 2;
@@ -68,6 +69,20 @@ public class Dic {
 		} else if(object_type == OBJECT_TYPE_USER) {
 			return "user";
 		} else {
+			return null;
+		}
+	}
+
+	public static Integer stringTypeToInt(String type){
+		if(type.equals("post")){
+			return 0;
+		} else if(type.equals("photo")){
+			return 1;
+		} else if(type.equals("album")) {
+			return 2;
+		} else if(type.equals("spost")){
+			return 4;
+		}else {
 			return null;
 		}
 	}

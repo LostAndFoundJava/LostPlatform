@@ -127,7 +127,8 @@ public class CommentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("comment/attach_comments");
 		//0 offest,5 the num of comments
-		mav.addObject("comments", commentService.getComments(type, id, 0, 5));
+		int intType=Dic.stringTypeToInt(type);
+		mav.addObject("comments", commentService.getComments(type, id, 0, commentService.getCommentsCount(intType, id)));
 		return mav;
 	}
 }

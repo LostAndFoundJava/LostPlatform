@@ -137,6 +137,7 @@
   			return false;
   		}
   		var object_type = $(this).parents('.event').attr('type');
+  		alert(object_type);
   		var object_id = $(this).parents('.event').attr('object_id');
   		var that = $(this);
   		

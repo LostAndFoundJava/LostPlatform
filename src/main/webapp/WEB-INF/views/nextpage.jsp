@@ -13,7 +13,7 @@
 		     <div class="summary">
 		       <a href="<c:url value="/user/${feed.user_id }" />">${feed.user_name }</a> 说
 		       <div class="date">
-		         ${feed.ts }
+		         <fmt:formatDate value="${feed.ts }" pattern="yyyy-MM-dd HH:mm:ss" />
 		       </div>
 		     </div>
 		     <!-- end summary -->
