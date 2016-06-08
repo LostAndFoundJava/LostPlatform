@@ -19,6 +19,7 @@ import com.lvwang.osf.model.Comment;
 import com.lvwang.osf.model.Notification;
 import com.lvwang.osf.model.User;
 import com.lvwang.osf.service.CommentService;
+import com.lvwang.osf.service.EventService;
 import com.lvwang.osf.service.NotificationService;
 import com.lvwang.osf.service.PostService;
 import com.lvwang.osf.service.UserService;
@@ -127,7 +128,8 @@ public class CommentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("comment/attach_comments");
 		//0 offest,5 the num of comments
-		mav.addObject("comments", commentService.getComments(type, id, 0, 5));
+		System.out.println("条数：    "+commentService.getCommentsCount(Dic.getTypeMap().get(type), id));
+		mav.addObject("comments", commentService.getComments(type, id, 0, commentService.getCommentsCount(Dic.getTypeMap().get(type), id)));
 		return mav;
 	}
 }

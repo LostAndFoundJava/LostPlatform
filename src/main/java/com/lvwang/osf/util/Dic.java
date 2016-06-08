@@ -1,5 +1,7 @@
 package com.lvwang.osf.util;
 
+import java.util.HashMap;
+import java.util.Map;
 public class Dic {
 	public static final int OBJECT_TYPE_POST = 0;
 	public static final int OBJECT_TYPE_PHOTO = 1;
@@ -52,6 +54,18 @@ public class Dic {
 			break;
 		}
 		return type;
+	}
+	private static Map<String,Integer> typeMap=new HashMap<String,Integer>();
+	public static Map<String,Integer> getTypeMap() {
+		return typeMap;
+	}
+	static{
+		typeMap.put( "album",OBJECT_TYPE_ALBUM);
+		typeMap.put("photo",OBJECT_TYPE_PHOTO);
+		typeMap.put("post",OBJECT_TYPE_POST);
+		typeMap.put("spost",OBJECT_TYPE_SHORTPOST );
+//		typeMap.put("following",OBJECT_TYPE_FOLLOWING );
+//		typeMap.put("user",OBJECT_TYPE_USER );
 	}
 	
 	public static String checkType(int object_type){
