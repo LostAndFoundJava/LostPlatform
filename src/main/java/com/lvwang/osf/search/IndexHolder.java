@@ -34,7 +34,7 @@ public class IndexHolder {
 		String classpath = IndexHolder.class.getClassLoader().getResource("").getPath();
 		Properties prop = new Properties();  
 		System.out.println("我在这儿初始化！！package com.lvwang.osf.search;");
-		classpath="/F:/java/TomCat/apache-tomcat-7.0.42/webapps/com.lvwang.osf/WEB-INF/classes";
+//		classpath="/F:/java/TomCat/apache-tomcat-7.0.42/webapps/com.lvwang.osf/WEB-INF/classes";
 		try {
 			InputStream in = new FileInputStream(classpath+"/spring/property.properties");  
 			prop.load(in);

@@ -1,7 +1,8 @@
 package com.lvwang.osf.util;
 
+import java.util.HashMap;
+import java.util.Map;
 public class Dic {
-	//object type
 	public static final int OBJECT_TYPE_POST = 0;
 	public static final int OBJECT_TYPE_PHOTO = 1;
 	public static final int OBJECT_TYPE_ALBUM = 2;
@@ -9,7 +10,7 @@ public class Dic {
 	public static final int OBJECT_TYPE_SHORTPOST = 4;
 	public static final int OBJECT_TYPE_USER = 5;
 	
-	//notify type  (notify_id is the event_id)
+	
 	public static final int NOTIFY_TYPE_SYSTEM = 0;
 	public static final int NOTIFY_TYPE_COMMENT = 1;
 	public static final int NOTIFY_TYPE_COMMENT_REPLY = 2;
@@ -54,6 +55,18 @@ public class Dic {
 		}
 		return type;
 	}
+	private static Map<String,Integer> typeMap=new HashMap<String,Integer>();
+	public static Map<String,Integer> getTypeMap() {
+		return typeMap;
+	}
+	static{
+		typeMap.put( "album",OBJECT_TYPE_ALBUM);
+		typeMap.put("photo",OBJECT_TYPE_PHOTO);
+		typeMap.put("post",OBJECT_TYPE_POST);
+		typeMap.put("spost",OBJECT_TYPE_SHORTPOST );
+//		typeMap.put("following",OBJECT_TYPE_FOLLOWING );
+//		typeMap.put("user",OBJECT_TYPE_USER );
+	}
 	
 	public static String checkType(int object_type){
 		if(object_type == OBJECT_TYPE_ALBUM){
@@ -69,20 +82,6 @@ public class Dic {
 		} else if(object_type == OBJECT_TYPE_USER) {
 			return "user";
 		} else {
-			return null;
-		}
-	}
-
-	public static Integer stringTypeToInt(String type){
-		if(type.equals("post")){
-			return 0;
-		} else if(type.equals("photo")){
-			return 1;
-		} else if(type.equals("album")) {
-			return 2;
-		} else if(type.equals("spost")){
-			return 4;
-		}else {
 			return null;
 		}
 	}

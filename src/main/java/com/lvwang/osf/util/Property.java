@@ -11,7 +11,7 @@ public class Property {
 		String classpath = Property.class.getClassLoader().getResource("").getPath();
 		System.out.println(Property.class.getClassLoader());
 		System.out.println("classpath:"+classpath);
-		classpath="/F:/java/TomCat/apache-tomcat-7.0.42/webapps/com.lvwang.osf/WEB-INF/classes";
+		//classpath="/F:/java/TomCat/apache-tomcat-7.0.42/webapps/com.lvwang.osf/WEB-INF/classes";
 		Properties prop = new Properties();  
 		try {
 			System.out.println(classpath+"/spring/property.properties");

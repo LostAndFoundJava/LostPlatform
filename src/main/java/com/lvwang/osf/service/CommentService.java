@@ -76,6 +76,7 @@ public class CommentService {
 		return getComments(type, id, 0, COUNT);
 	}
 	
+
 	public List<Comment> getComments(String type, int id, int offset, int count) {
 		if(type == null || type.length() == 0)
 			return null;
